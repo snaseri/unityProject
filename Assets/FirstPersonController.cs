@@ -13,6 +13,8 @@ public class FirstPersonController : MonoBehaviour
     private bool ShouldCrouch =>
         Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded;
 
+    private bool isMoving;
+
 
     [Header("Functional Options")] 
     [SerializeField] private bool canSprint = true;
@@ -63,6 +65,7 @@ public class FirstPersonController : MonoBehaviour
     private Camera playerCamera;
     private CharacterController characterController;
     private Animator anime;
+    private GameObject charModel;
 
 
     private Vector3 moveDirection;
@@ -77,6 +80,9 @@ public class FirstPersonController : MonoBehaviour
     {
         playerCamera = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
+        // TODO Change way of getting this
+        charModel = GameObject.Find("Male Villager 01");
+
 
         anime = GetComponent<Animator>();
         defaultYpos = playerCamera.transform.localPosition.y;
@@ -87,7 +93,6 @@ public class FirstPersonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (CanMove)
         {
 
@@ -117,14 +122,29 @@ public class FirstPersonController : MonoBehaviour
                         (transform.TransformDirection(Vector3.right) * currentInput.y);
         moveDirection.y = moveDirectionY;
 
+        if (Mathf.Abs(currentInput.x) > 0f || Mathf.Abs(currentInput.y) > 0f) 
+            isMoving = true;
+        else 
+            isMoving = false;
+
         //ANIMATIONS
         if (characterController.isGrounded && currentInput == Vector2.zero)
         {
             anime.SetBool("isRunning", false);  
         }
-        else if (Mathf.Abs(currentInput.x) > 0f || Mathf.Abs(currentInput.y) > 0f)
+        else if (isMoving && !isCrouching)
         {
             anime.SetBool("isRunning", true);
+        } 
+        // CROUCH ANIMATION
+        if (isMoving && isCrouching)
+        {
+            anime.SetBool("isCrouchWalk", true);
+            anime.SetBool("isCrouchIdle", false);
+        } else if (!isMoving && isCrouching)
+        {
+            anime.SetBool("isCrouchWalk", false);
+            anime.SetBool("isCrouchIdle", true);
         }
 
     }
@@ -147,7 +167,7 @@ public class FirstPersonController : MonoBehaviour
         }
         
         //Sprint
-        if (isSprinting)
+        if (isSprinting && !isCrouching)
         { 
             anime.SetBool("isSprinting", true);   
         }
@@ -156,15 +176,6 @@ public class FirstPersonController : MonoBehaviour
             anime.SetBool("isSprinting", false);            
         }
         
-        //Crouch
-        if (isCrouching)
-        {
-            anime.SetBool("IsCrouching", true);
-        }
-        else
-        {
-            anime.SetBool("IsCrouching", false);     
-        }
     }
 
     private void HandleMouseLook()
@@ -202,6 +213,8 @@ public class FirstPersonController : MonoBehaviour
         float timeElapsed = 0;
         float targetHeight = isCrouching ? standingHeight : crouchHeight;
         float currentHeight = characterController.height;
+        float currentModelHeight = charModel.transform.localPosition.y;
+        float targetModelHeight = isCrouching ? -1f : 0f;
         Vector3 targetCenter = isCrouching ? standingCenter : crouchingCenter;
         Vector3 currentCenter = characterController.center;
 
@@ -210,6 +223,8 @@ public class FirstPersonController : MonoBehaviour
         {
             characterController.height = Mathf.Lerp(currentHeight, targetHeight, timeElapsed / timeToCrouch);
             characterController.center = Vector3.Lerp(currentCenter, targetCenter, timeElapsed/timeToCrouch);
+            charModel.transform.localPosition =
+                new Vector3(0, Mathf.Lerp(currentModelHeight, targetModelHeight, timeElapsed / timeToCrouch), 0);
 
             timeElapsed += Time.deltaTime;
             yield return null;
@@ -217,9 +232,19 @@ public class FirstPersonController : MonoBehaviour
         
         characterController.height = targetHeight;
         characterController.center = targetCenter;
+        charModel.transform.localPosition = new Vector3(0, targetModelHeight, 0);
 
-        isCrouching = !isCrouching;
         
+
+        //ANIMATIONS
+        isCrouching = !isCrouching;
+        if (!isCrouching)
+        {
+            anime.SetBool("isCrouchWalk", false);
+            anime.SetBool("isCrouchIdle", false);
+        }
+
+
         duringCrouchAnimation = false;
     }
 
