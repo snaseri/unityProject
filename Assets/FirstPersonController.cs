@@ -2,12 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class FirstPersonController : MonoBehaviour
 {
+    PhotonView view;
 
     public bool CanMove { get; private set; } = true;
+
     private bool isSprinting => canSprint && Input.GetKey(sprintKey);
+
     private bool ShouldJump => Input.GetKey(jumpKey) && characterController.isGrounded;
 
     private bool ShouldCrouch =>
@@ -78,74 +82,87 @@ public class FirstPersonController : MonoBehaviour
 // Start is called before the first frame update
     void Awake()
     {
-        playerCamera = GetComponentInChildren<Camera>();
-        characterController = GetComponent<CharacterController>();
-        // TODO Change way of getting this
-        charModel = GameObject.Find("Male Villager 01");
+        view = GetComponent<PhotonView>();
+        if (view.IsMine)
+        {
+            playerCamera = GetComponentInChildren<Camera>();
+            characterController = GetComponent<CharacterController>();
 
+            // TODO Change way of getting this
+            charModel = GameObject.Find("Male Villager 01");
 
-        anime = GetComponent<Animator>();
-        defaultYpos = playerCamera.transform.localPosition.y;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+            anime = GetComponent<Animator>();
+            defaultYpos = playerCamera.transform.localPosition.y;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
-
+    
     // Update is called once per frame
     void Update()
     {
         if (CanMove)
         {
+            if (view.IsMine)
+            {
+                {
+                    HandleMovementInput();
+                    HandleMouseLook();
+                    if (canJump)
+                        HandleJump();
 
-            HandleMovementInput();
-            HandleMouseLook();
-            if (canJump)
-                HandleJump();
+                    if (canUseHeadbob)
+                        HandleHeadbob();
 
-            if (canUseHeadbob)
-                HandleHeadbob();
-            
-            if (canCrouch)
-                HandleCrouch();
-            
-            ApplyFinalMovements();
-            HandleAnimations();
+                    if (canCrouch)
+                        HandleCrouch();
+
+                    ApplyFinalMovements();
+                    HandleAnimations();
+                }
+            }
         }
     }
     
     
     private void HandleMovementInput()
     {
-        currentInput = new Vector2((isCrouching ? crouchSpeed : isSprinting ? sprintSpeed : walkSpeed) * Input.GetAxis("Vertical"), 
-            (isCrouching ? crouchSpeed : isSprinting ? sprintSpeed : walkSpeed)  * Input.GetAxis("Horizontal"));
-        float moveDirectionY = moveDirection.y;
-        moveDirection = (transform.TransformDirection(Vector3.forward) * currentInput.x) +
-                        (transform.TransformDirection(Vector3.right) * currentInput.y);
-        moveDirection.y = moveDirectionY;
+            currentInput = new Vector2(
+                (isCrouching ? crouchSpeed : isSprinting ? sprintSpeed : walkSpeed) * Input.GetAxis("Vertical"),
+                (isCrouching ? crouchSpeed : isSprinting ? sprintSpeed : walkSpeed) * Input.GetAxis("Horizontal"));
+            float moveDirectionY = moveDirection.y;
+            moveDirection = (transform.TransformDirection(Vector3.forward) * currentInput.x) +
+                            (transform.TransformDirection(Vector3.right) * currentInput.y);
+            moveDirection.y = moveDirectionY;
 
-        if (Mathf.Abs(currentInput.x) > 0f || Mathf.Abs(currentInput.y) > 0f) 
-            isMoving = true;
-        else 
-            isMoving = false;
 
-        //ANIMATIONS
-        if (characterController.isGrounded && currentInput == Vector2.zero)
-        {
-            anime.SetBool("isRunning", false);  
-        }
-        else if (isMoving && !isCrouching)
-        {
-            anime.SetBool("isRunning", true);
-        } 
-        // CROUCH ANIMATION
-        if (isMoving && isCrouching)
-        {
-            anime.SetBool("isCrouchWalk", true);
-            anime.SetBool("isCrouchIdle", false);
-        } else if (!isMoving && isCrouching)
-        {
-            anime.SetBool("isCrouchWalk", false);
-            anime.SetBool("isCrouchIdle", true);
-        }
+            if (Mathf.Abs(currentInput.x) > 0f || Mathf.Abs(currentInput.y) > 0f)
+                isMoving = true;
+            else
+                isMoving = false;
+
+            //ANIMATIONS
+            if (characterController.isGrounded && currentInput == Vector2.zero)
+            {
+                anime.SetBool("isRunning", false);
+            }
+            else if (isMoving && !isCrouching)
+            {
+                anime.SetBool("isRunning", true);
+            }
+
+            // CROUCH ANIMATION
+            if (isMoving && isCrouching)
+            {
+                anime.SetBool("isCrouchWalk", true);
+                anime.SetBool("isCrouchIdle", false);
+            }
+            else if (!isMoving && isCrouching)
+            {
+                anime.SetBool("isCrouchWalk", false);
+                anime.SetBool("isCrouchIdle", true);
+            }
 
     }
     
@@ -180,10 +197,13 @@ public class FirstPersonController : MonoBehaviour
 
     private void HandleMouseLook()
     {
-        rotationX -= Input.GetAxis("Mouse Y") * lookSpeedY;
-        rotationX = Mathf.Clamp(rotationX, -upperLookLimit, lowerLookLimit);
-        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeedX, 0);
+        if (view.IsMine)
+        {
+            rotationX -= Input.GetAxis("Mouse Y") * lookSpeedY;
+            rotationX = Mathf.Clamp(rotationX, -upperLookLimit, lowerLookLimit);
+            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeedX, 0);
+        }
     }
 
     private void HandleJump()
