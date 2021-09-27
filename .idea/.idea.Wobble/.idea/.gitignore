@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.Wobble.iml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../../:\Users\Sepehr\Documents\Wobble\.idea\.idea.Wobble\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
