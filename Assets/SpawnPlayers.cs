@@ -16,7 +16,7 @@ public class SpawnPlayers : MonoBehaviour
 
     public void Start()
     {
-
+        Spawn();
     }
 
     void Spawn()
@@ -24,7 +24,7 @@ public class SpawnPlayers : MonoBehaviour
         Vector3 RandomPosition =
             new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minz, maxZ));
        GameObject myPlayer = (GameObject)PhotonNetwork.Instantiate(playerPrefab.name, RandomPosition, Quaternion.identity);  
-       myPlayer.transform.FindChild("Camera").gameObject.SetActive(true);
+       myPlayer.GetComponentInChildren<Camera>().gameObject.SetActive(true);
     }
 
 }

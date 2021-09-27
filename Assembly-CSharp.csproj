@@ -52,44 +52,44 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
+     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
      <Compile Include="Assets\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowingActionSMB.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
+     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
      <Compile Include="Assets\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowFireball.cs" />
      <Compile Include="Assets\Kevin Iglesias\Throwing Animations Pack\Scripts\IdleThrowTrick.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
      <Compile Include="Assets\Kevin Iglesias\Soldier Animations\Scripts\JumpScript.cs" />
      <Compile Include="Assets\Kevin Iglesias\Melee Warrior Animations\Scripts\MeleeWarriorLeftHandIK.cs" />
      <Compile Include="Assets\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowProp.cs" />
      <Compile Include="Assets\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowNova.cs" />
      <Compile Include="Assets\FirstPersonController.cs" />
+     <Compile Include="Assets\CreateAndJoinRooms.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
      <Compile Include="Assets\Kevin Iglesias\Melee Warrior Animations\Scripts\MeleeWarriorShieldRotator.cs" />
      <Compile Include="Assets\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowHealing.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
      <Compile Include="Assets\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowMultipleProps.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
      <Compile Include="Assets\Kevin Iglesias\Soldier Animations\RetargetingExamples\Scripts\SoldierIK.cs" />
      <Compile Include="Assets\Kevin Iglesias\Archer Animations\Scripts\BowLoadScript.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
      <Compile Include="Assets\Kevin Iglesias\Caster Mage Animations\Scripts\AddCastEffect.cs" />
      <Compile Include="Assets\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowShockwave.cs" />
      <Compile Include="Assets\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowBigAxe.cs" />
      <Compile Include="Assets\Kevin Iglesias\Throwing Animations Pack\Scripts\ChangeSpear.cs" />
-     <Compile Include="Assets\Kevin Iglesias\Caster Mage Animations\Scripts\CastSpells.cs" />
-     <Compile Include="Assets\Kevin Iglesias\Soldier Animations\Scripts\JumpScriptSMB.cs" />
-     <Compile Include="Assets\Kevin Iglesias\Soldier Animations\RetargetingExamples\Scripts\SoldierIKSMB.cs" />
-     <Compile Include="Assets\Kevin Iglesias\Villager Animations\Scripts\VillagerHandsIK.cs" />
-     <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
-     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
-     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
-     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
      <Compile Include="Assets\ConnectToServer.cs" />
-     <Compile Include="Assets\CreateAndJoinRooms.cs" />
+     <Compile Include="Assets\Kevin Iglesias\Caster Mage Animations\Scripts\CastSpells.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
+     <Compile Include="Assets\Kevin Iglesias\Soldier Animations\Scripts\JumpScriptSMB.cs" />
      <Compile Include="Assets\SpawnPlayers.cs" />
+     <Compile Include="Assets\Kevin Iglesias\Soldier Animations\RetargetingExamples\Scripts\SoldierIKSMB.cs" />
+     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
+     <Compile Include="Assets\Kevin Iglesias\Villager Animations\Scripts\VillagerHandsIK.cs" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
      <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
@@ -320,14 +320,14 @@
  <Reference Include="UnityEditor.UnityConnectModule">
  <HintPath>C:/Unity/2020.3.17f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
  </Reference>
- <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/Sepehr/Documents/Wobble/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+ <Reference Include="websocket-sharp">
+ <HintPath>C:/Users/Sepehr/Documents/Wobble/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
  <HintPath>C:/Users/Sepehr/Documents/Wobble/Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll</HintPath>
  </Reference>
- <Reference Include="websocket-sharp">
- <HintPath>C:/Users/Sepehr/Documents/Wobble/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>C:/Users/Sepehr/Documents/Wobble/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Unity/2020.3.17f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -695,14 +695,14 @@
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/Sepehr/Documents/Wobble/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
- <Reference Include="Unity.PlasticSCM.Editor">
- <HintPath>C:/Users/Sepehr/Documents/Wobble/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>C:/Users/Sepehr/Documents/Wobble/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/Sepehr/Documents/Wobble/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PlasticSCM.Editor">
+ <HintPath>C:/Users/Sepehr/Documents/Wobble/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -710,33 +710,21 @@
       <Project>{15219b6f-8eae-9e15-c614-ba316de7423d}</Project>
       <Name>PhotonUnityNetworking</Name>
     </ProjectReference>
-    <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
-      <Project>{4de8b3ef-df9d-31d2-797d-7c8b595a0d3d}</Project>
-      <Name>PunDemos.DemoSlotcarEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
-      <Project>{518c0da4-16e9-a674-7d6c-821cd8b36ab4}</Project>
-      <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
-      <Project>{5a009c02-b5e2-2ea3-9e3b-96a461de0095}</Project>
-      <Name>PhotonUnityNetworking.Utilities</Name>
+    <ProjectReference Include="PhotonChat.csproj">
+      <Project>{e54f4fc9-6169-495a-e929-1466344eddce}</Project>
+      <Name>PhotonChat</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Demos.csproj">
       <Project>{35b8bf3a-295e-004b-db3c-3eea3aa0c972}</Project>
       <Name>PhotonUnityNetworking.Demos</Name>
     </ProjectReference>
-    <ProjectReference Include="PhotonChat.csproj">
-      <Project>{e54f4fc9-6169-495a-e929-1466344eddce}</Project>
-      <Name>PhotonChat</Name>
+    <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
+      <Project>{66940a8f-52d1-7cd2-5b0f-305024cb1474}</Project>
+      <Name>PhotonUnityNetworking.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
       <Project>{02f0aec3-723b-f52a-2aba-49b945b92082}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
-      <Project>{66940a8f-52d1-7cd2-5b0f-305024cb1474}</Project>
-      <Name>PhotonUnityNetworking.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
       <Project>{382496ad-378b-303f-222c-50b4494ea4f0}</Project>
@@ -745,6 +733,18 @@
     <ProjectReference Include="PhotonRealtime.csproj">
       <Project>{68a13066-a8a5-233f-7762-6730a2f89531}</Project>
       <Name>PhotonRealtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
+      <Project>{5a009c02-b5e2-2ea3-9e3b-96a461de0095}</Project>
+      <Name>PhotonUnityNetworking.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
+      <Project>{4de8b3ef-df9d-31d2-797d-7c8b595a0d3d}</Project>
+      <Name>PunDemos.DemoSlotcarEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
+      <Project>{518c0da4-16e9-a674-7d6c-821cd8b36ab4}</Project>
+      <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

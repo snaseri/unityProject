@@ -83,20 +83,19 @@ public class FirstPersonController : MonoBehaviour
     void Awake()
     {
         view = GetComponent<PhotonView>();
-        if (view.IsMine)
-        {
-            playerCamera = GetComponentInChildren<Camera>();
+        playerCamera = GetComponentInChildren<Camera>();
             characterController = GetComponent<CharacterController>();
 
             // TODO Change way of getting this
-            charModel = GameObject.Find("Male Villager 01");
+            charModel = GameObject.Find("Player");
 
             anime = GetComponent<Animator>();
             defaultYpos = playerCamera.transform.localPosition.y;
+            playerCamera.gameObject.SetActive(view.IsMine);
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-        }
+        
     }
     
     // Update is called once per frame
