@@ -9,8 +9,9 @@ public class LightingManager : MonoBehaviour
     //References
     [SerializeField ]private Light DirectionalLight;
     [SerializeField ]private LightingPreset Preset;
+
+    private float timeHour;
     //Vars
-    [SerializeField, Range(0, 24)] private float TimeOfDay;
     // Start is called before the first frame update
 
     private void UpdateLighting(float timePrecent)
@@ -25,7 +26,7 @@ public class LightingManager : MonoBehaviour
         }
 
     }
-
+    
     private void OnValidate()
     {
         if (DirectionalLight != null)
@@ -62,13 +63,11 @@ public class LightingManager : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            TimeOfDay += Time.deltaTime;
-            TimeOfDay %= 24;
-            UpdateLighting(TimeOfDay / 24f);
+            UpdateLighting(TimeManager.Hour / 24f);
         }
         else
         {
-            UpdateLighting(TimeOfDay / 24f);
+            UpdateLighting(TimeManager.Hour / 24f);
         }
     }
 }
