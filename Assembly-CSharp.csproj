@@ -59,6 +59,7 @@
      <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
+     <Compile Include="Assets\Scripts\LightingManager.cs" />
      <Compile Include="Assets\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowFireball.cs" />
      <Compile Include="Assets\Kevin Iglesias\Throwing Animations Pack\Scripts\IdleThrowTrick.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\Kevin Iglesias\Melee Warrior Animations\Scripts\MeleeWarriorLeftHandIK.cs" />
      <Compile Include="Assets\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowProp.cs" />
      <Compile Include="Assets\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowNova.cs" />
+     <Compile Include="Assets\Scripts\LightingPreset.cs" />
      <Compile Include="Assets\Scripts\FirstPersonController.cs" />
      <Compile Include="Assets\Scripts\Multiplayer\CreateAndJoinRooms.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
@@ -90,8 +92,6 @@
      <Compile Include="Assets\Kevin Iglesias\Soldier Animations\RetargetingExamples\Scripts\SoldierIKSMB.cs" />
      <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
      <Compile Include="Assets\Kevin Iglesias\Villager Animations\Scripts\VillagerHandsIK.cs" />
-     <Compile Include="Assets\Scripts\LightingPreset.cs" />
-     <Compile Include="Assets\Scripts\LightingManager.cs" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
      <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
