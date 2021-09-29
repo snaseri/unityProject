@@ -10,6 +10,7 @@ public class LightingManager : MonoBehaviour
     [SerializeField ]private Light DirectionalLight;
     [SerializeField ]private LightingPreset Preset;
 
+    private float minOfDay;
     private float timeHour;
     //Vars
     // Start is called before the first frame update
@@ -54,7 +55,7 @@ public class LightingManager : MonoBehaviour
     {
         
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -63,11 +64,12 @@ public class LightingManager : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            UpdateLighting(TimeManager.Hour / 24f);
+            minOfDay = (TimeManager.Hour * 60) + TimeManager.Minute;
+            UpdateLighting(minOfDay / 1440f);
         }
         else
         {
-            UpdateLighting(TimeManager.Hour / 24f);
+            UpdateLighting(minOfDay / 1440f);
         }
     }
 }

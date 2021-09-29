@@ -128,6 +128,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\Kevin Iglesias\Villager Animations\Scripts\VillagerHandsIK.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+     <Compile Include="Assets\Scripts\Environment\DayNightCycle.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -149,8 +150,10 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\Photon\PhotonUnityNetworking\readme.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\BOXOPHOBIC\Polyverse Skies\Core\Shaders\Simple.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\Polygonal Fantasy Pack\Read Me.txt" />
+     <None Include="Assets\BOXOPHOBIC\Polyverse Skies\Generator\Shaders\Rendering Clouds.shader" />
      <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.xml" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\Polygonal Fantasy Pack\www.meshtint.com.txt" />
@@ -158,6 +161,7 @@
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\BOXOPHOBIC\Polyverse Skies\Core\Shaders\Standard.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
  <Reference Include="UnityEngine">
@@ -807,6 +811,26 @@
     <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
       <Project>{518c0da4-16e9-a674-7d6c-821cd8b36ab4}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.PolyverseSkies.Editor.csproj">
+      <Project>{14652996-b909-f824-f130-6f76a12f1939}</Project>
+      <Name>Boxophobic.PolyverseSkies.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.PolyverseSkies.Scripts.csproj">
+      <Project>{8f48f157-1cca-1b20-6601-4859c3b2c7f8}</Project>
+      <Name>Boxophobic.PolyverseSkies.Scripts</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.PolyverseSkies.Runtime.csproj">
+      <Project>{a47ad4d6-086d-3e26-b5d7-600d9e2eead0}</Project>
+      <Name>Boxophobic.PolyverseSkies.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.Utils.Editor.csproj">
+      <Project>{fee61e71-2540-cd60-3986-13b0139ece1c}</Project>
+      <Name>Boxophobic.Utils.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.Utils.Scripts.csproj">
+      <Project>{f0093100-5863-80d9-dad4-efc040f92987}</Project>
+      <Name>Boxophobic.Utils.Scripts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

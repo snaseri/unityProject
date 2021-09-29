@@ -14,8 +14,9 @@ public class TimeManager : MonoBehaviour
 
     public static int Minute { get; private set; }
     public static int Hour { get; private set; }
-    
     public static int Day { get; private set; }
+    
+    public static int MinuteOfDay { get; private set; }
 
     private float minuteToRealTime = 0.05f;
     private float timer;
@@ -51,7 +52,7 @@ public class TimeManager : MonoBehaviour
                 Minute = 0;
                 onHourChange?.Invoke();
 
-                if (hour > 24)
+                if (hour > 23)
                 {
                     Day++;
                     hour = 0;
@@ -60,8 +61,15 @@ public class TimeManager : MonoBehaviour
                 }
 
             }
+
+            MinuteOfDay = minuteOfDay(Hour, Minute);
             timer = minuteToRealTime;
         }
+    }
+
+    private int minuteOfDay(int hour, int minute)
+    {
+        return ((hour * 60) + minute);
     }
 
     // Update is called once per frame
